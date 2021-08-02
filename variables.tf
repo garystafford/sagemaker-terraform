@@ -7,7 +7,7 @@ variable "notebook_instance_type" {
 }
 
 variable "code_repository" {
-  default = "https://github.com/garystafford/sagemaker-pytorch-demo.git"
+  default = "your_repo_path_here"
 }
 
 variable "project_tag" {
