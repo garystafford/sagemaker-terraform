@@ -2,7 +2,9 @@
 
 Terraform code to provision resources in a new AWS Account for an Amazon SageMaker/PyTorch Workshop.
 
-## Terraform Commands with New AWS Account
+![Graph](graphviz.png)
+
+## Terraform Commands
 
 ```shell
 # if used in previous account with local state file
