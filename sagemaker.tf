@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "sagemaker_bucket" {
   bucket = "sagemaker-${var.region}-${data.aws_caller_identity.current.account_id}"
-  acl = "private"
+  acl    = "private"
   tags = {
     Name = var.project_tag
   }
@@ -10,14 +10,14 @@ resource "aws_iam_role" "iam_role_sagemaker" {
   path = "/"
   name = "AmazonSageMakerFullAccess"
   assume_role_policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        Effect: "Allow",
-        Principal: {
-          "Service": "sagemaker.amazonaws.com"
+        Effect : "Allow",
+        Principal : {
+          "Service" : "sagemaker.amazonaws.com"
         },
-        Action: "sts:AssumeRole"
+        Action : "sts:AssumeRole"
       }
     ]
   })
@@ -28,12 +28,12 @@ resource "aws_iam_role" "iam_role_sagemaker" {
 }
 
 resource "aws_iam_role_policy_attachment" "role-attach-1" {
-  role = aws_iam_role.iam_role_sagemaker.name
+  role       = aws_iam_role.iam_role_sagemaker.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"
 }
 
 resource "aws_iam_role_policy_attachment" "role-attach-2" {
-  role = aws_iam_role.iam_role_sagemaker.name
+  role       = aws_iam_role.iam_role_sagemaker.name
   policy_arn = "arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess"
 }
 
@@ -41,14 +41,14 @@ resource "aws_iam_role" "iam_role_step_functions" {
   path = "/"
   name = "StepFunctionsWorkflowExecutionRole"
   assume_role_policy = jsonencode({
-    "Version": "2012-10-17",
-    "Statement": [
+    "Version" : "2012-10-17",
+    "Statement" : [
       {
-        Effect: "Allow",
-        Principal: {
-          "Service": "states.amazonaws.com"
+        Effect : "Allow",
+        Principal : {
+          "Service" : "states.amazonaws.com"
         },
-        Action: "sts:AssumeRole"
+        Action : "sts:AssumeRole"
       }
     ]
   })
@@ -154,9 +154,9 @@ resource "aws_sagemaker_code_repository" "example_repo" {
 }
 
 resource "aws_sagemaker_notebook_instance" "notebook_instance" {
-  name = "workshop-notebook-instance"
-  role_arn = aws_iam_role.iam_role_sagemaker.arn
-  instance_type = var.notebook_instance_type
+  name                    = "workshop-notebook-instance"
+  role_arn                = aws_iam_role.iam_role_sagemaker.arn
+  instance_type           = var.notebook_instance_type
   default_code_repository = aws_sagemaker_code_repository.example_repo.code_repository_name
   tags = {
     Name = var.project_tag

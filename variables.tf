@@ -4,18 +4,18 @@ variable "region" {
 
 variable "notebook_instance_type" {
   description = "Amazon SageMaker notebook instance type"
-  default = "ml.t2.medium"
-  type = string
+  default     = "ml.t2.medium"
+  type        = string
 
 }
 
 variable "code_repository" {
   description = "Git repository associated with your notebook instance"
-  type = string
+  type        = string
 }
 
 variable "project_tag" {
   description = "Value of the 'Name' tag applied to all resources"
-  default = "SageMaker PyTorch Workshop"
-  type = string
+  default     = "SageMaker PyTorch Workshop"
+  type        = string
 }
