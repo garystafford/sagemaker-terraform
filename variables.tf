@@ -11,5 +11,5 @@ variable "code_repository" {
 }
 
 variable "project_tag" {
-  default = "SageMaker Workshop"
+  default = "SageMaker PyTorch Workshop"
 }
