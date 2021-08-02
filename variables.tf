@@ -5,6 +5,7 @@ variable "region" {
 variable "notebook_instance_type" {
   default = "ml.t2.medium"
 }
+
 variable "code_repository" {
   default = "https://github.com/garystafford/sagemaker-pytorch-demo.git"
 }
