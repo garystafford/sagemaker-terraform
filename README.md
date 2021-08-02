@@ -7,9 +7,6 @@ Terraform code to provision resources in a new AWS Account for an Amazon SageMak
 ## Terraform Commands
 
 ```shell
-# if used in previous account with local state file
-rm -rf .terraform.*
-
 terraform init
 
 terraform plan
