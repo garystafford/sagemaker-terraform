@@ -11,6 +11,7 @@ variable "notebook_instance_type" {
 
 variable "code_repository" {
   description = "Git repository associated with your notebook instance"
+  default     = "https://github.com/aws/amazon-sagemaker-examples.git"
   type        = string
 }
 
